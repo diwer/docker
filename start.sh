@@ -1,0 +1,1 @@
+docker run -it -h hadoop --name base -p 10022:22  mshengs/hadoop:base  
