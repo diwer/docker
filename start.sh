@@ -1,7 +1,7 @@
 sed -i “” '/^[localhost]:10022/d' /Users/ming/.ssh/known_hosts
 docker rm master -f
 docker network create --driver=bridge hadoop
-#docker run -it -h hadoop --name master -p 10022:22  mshengs/hadoop:base  
+  
 N=${1:-3}
 docker run -itd \
                 --net=hadoop \
