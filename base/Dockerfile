@@ -4,7 +4,7 @@ FROM centos
 
 MAINTAINER ming (ms.diwers@gmail.com)
 
-RUN yum install -y openssh-server openssh-clients vim wget  java-1.8.0-openjdk
+RUN yum install -y openssh-server openssh-clients vim wget sudo  java-1.8.0-openjdk
 #创建下载目录 
 RUN mkdir /home/download 
 #获取 maven 验证java_home 用 无意义 start
