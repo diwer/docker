@@ -16,8 +16,6 @@ RUN chmod u-w /etc/sudoers
 
 # 配置无密码登陆到本机，首相生成公私钥对，然后建立authorized_keys文件
 RUN ssh-keygen -f /root/.ssh/id_rsa -N '' &&  cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
-#RUN echo "Host * ">>/etc/ssh/sshd_config
-# RUN echo "StrictHostKeyChecking no">>/etc/ssh/sshd_config
 
 #配置 hadoop
 ENV HADOOP_HOME=/usr/local/hadoop
@@ -48,5 +46,7 @@ RUN mv /home/tmp/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh && \
     
     mv /home/tmp/start-hadoop.sh ~/start-hadoop.sh && \
     mv /home/tmp/ssh_config /root/.ssh/config 
+
+RUN /usr/local/hadoop/bin/hdfs namenode -format
 
 #CMD ["/usr/sbin/sshd", "-D"]
